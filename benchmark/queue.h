@@ -34,7 +34,7 @@ typedef int handle_t;
 #elif SCQ
 #include "scq.h"
 
-#elif SCQ
+#elif SCQD
 #include "scqd.h"
 
 #elif SCQ2
