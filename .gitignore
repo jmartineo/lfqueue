@@ -1,0 +1,17 @@
+# Ignore .o files
+*.o
+
+# Ignore executables
+benchmark/faa
+benchmark/wfqueue
+benchmark/wfqueue0
+benchmark/lcrq
+benchmark/ccqueue
+benchmark/msqueue
+benchmark/delay
+benchmark/cas
+benchmark/scq
+benchmark/scq2
+benchmark/scqd
+benchmark/ncq
+benchmark/wcq
