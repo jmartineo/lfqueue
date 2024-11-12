@@ -1,6 +1,8 @@
 # Ignore .o files
 *.o
 
+*.so
+
 # Ignore executables
 benchmark/faa
 benchmark/wfqueue
