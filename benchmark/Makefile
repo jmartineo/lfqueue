@@ -1,7 +1,7 @@
 # Executable and shared library targets
 TESTS = wfqueue wfqueue0 lcrq ccqueue msqueue faa delay cas scq scq2 scqd ncq wcq
 SHARED_LIBS = build/libwfqueue.so build/libwfqueue0.so build/liblcrq.so build/libccqueue.so \
-              build/libmsqueue.so build/libfaa.so build/libdelay.so build/libcas.so \
+              build/libmsqueue.so build/libfaa.so build/libcas.so \
               build/libscq.so build/libscq2.so build/libscqd.so build/libncq.so build/libwcq.so
 
 # if using clang, please also specify -mcx16 for x86-64
@@ -35,13 +35,15 @@ $(BUILD_DIR):
 
 all: $(TESTS) $(SHARED_LIBS)
 
+shared: $(SHARED_LIBS)
+
 # Rule for each shared library
 $(BUILD_DIR)/libwfqueue.so: CFLAGS += -DWFQUEUE
 $(BUILD_DIR)/libwfqueue.so: $(BUILD_DIR)/wfqueue.o $(BUILD_DIR)/harness.o $(BUILD_DIR)/pairwise.o | $(BUILD_DIR)
 	$(CC) -shared -o $@ $^ $(LDLIBS)
 
 $(BUILD_DIR)/libwfqueue0.so: CFLAGS += -DMAX_PATIENCE=0 -DWFQUEUE
-$(BUILD_DIR)/libwfqueue0.so: $(BUILD_DIR)/wfqueue0.o $(BUILD_DIR)/harness.o $(BUILD_DIR)/pairwise.o | $(BUILD_DIR)
+$(BUILD_DIR)/libwfqueue0.so: $(BUILD_DIR)/wfqueue.o $(BUILD_DIR)/harness.o $(BUILD_DIR)/pairwise.o | $(BUILD_DIR)
 	$(CC) -shared -o $@ $^ $(LDLIBS)
 
 $(BUILD_DIR)/liblcrq.so: CFLAGS += -DLCRQ
