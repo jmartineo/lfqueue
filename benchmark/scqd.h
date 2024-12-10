@@ -18,7 +18,7 @@ typedef struct _queue_t {
 
 typedef struct _handle_t {
   int pad;
-} handle_t DOUBLE_CACHE_ALIGNED;
+} handle_t; // DOUBLE_CACHE_ALIGNED;
 
 #endif
 

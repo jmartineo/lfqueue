@@ -32,6 +32,8 @@ BUILD_DIR = build
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
+CFLAGS += -I../../../../../benchmarks/C/
+
 
 all: $(TESTS) $(SHARED_LIBS)
 
@@ -39,51 +41,51 @@ shared: $(SHARED_LIBS)
 
 # Rule for each shared library
 $(BUILD_DIR)/libwfqueue.so: CFLAGS += -DWFQUEUE
-$(BUILD_DIR)/libwfqueue.so: $(BUILD_DIR)/wfqueue.o $(BUILD_DIR)/harness.o $(BUILD_DIR)/pairwise.o | $(BUILD_DIR)
+$(BUILD_DIR)/libwfqueue.so: $(BUILD_DIR)/wfqueue.o $(BUILD_DIR)/harness_wrapper.o $(BUILD_DIR)/pairwise.o | $(BUILD_DIR)
 	$(CC) -shared -o $@ $^ $(LDLIBS)
 
 $(BUILD_DIR)/libwfqueue0.so: CFLAGS += -DMAX_PATIENCE=0 -DWFQUEUE
-$(BUILD_DIR)/libwfqueue0.so: $(BUILD_DIR)/wfqueue.o $(BUILD_DIR)/harness.o $(BUILD_DIR)/pairwise.o | $(BUILD_DIR)
+$(BUILD_DIR)/libwfqueue0.so: $(BUILD_DIR)/wfqueue.o $(BUILD_DIR)/harness_wrapper.o $(BUILD_DIR)/pairwise.o | $(BUILD_DIR)
 	$(CC) -shared -o $@ $^ $(LDLIBS)
 
 $(BUILD_DIR)/liblcrq.so: CFLAGS += -DLCRQ
-$(BUILD_DIR)/liblcrq.so: $(BUILD_DIR)/lcrq.o $(BUILD_DIR)/harness.o $(BUILD_DIR)/pairwise.o $(BUILD_DIR)/hzdptr.o $(BUILD_DIR)/xxhash.o | $(BUILD_DIR)
+$(BUILD_DIR)/liblcrq.so: $(BUILD_DIR)/lcrq.o $(BUILD_DIR)/harness_wrapper.o $(BUILD_DIR)/pairwise.o $(BUILD_DIR)/hzdptr.o $(BUILD_DIR)/xxhash.o | $(BUILD_DIR)
 	$(CC) -shared -o $@ $^ $(LDLIBS)
 
 $(BUILD_DIR)/libccqueue.so: CFLAGS += -DCCQUEUE
-$(BUILD_DIR)/libccqueue.so: $(BUILD_DIR)/ccqueue.o $(BUILD_DIR)/harness.o $(BUILD_DIR)/pairwise.o | $(BUILD_DIR)
+$(BUILD_DIR)/libccqueue.so: $(BUILD_DIR)/ccqueue.o $(BUILD_DIR)/harness_wrapper.o $(BUILD_DIR)/pairwise.o | $(BUILD_DIR)
 	$(CC) -shared -o $@ $^ $(LDLIBS)
 
 $(BUILD_DIR)/libmsqueue.so: CFLAGS += -DMSQUEUE
-$(BUILD_DIR)/libmsqueue.so: $(BUILD_DIR)/msqueue.o $(BUILD_DIR)/harness.o $(BUILD_DIR)/pairwise.o $(BUILD_DIR)/hzdptr.o $(BUILD_DIR)/xxhash.o | $(BUILD_DIR)
+$(BUILD_DIR)/libmsqueue.so: $(BUILD_DIR)/msqueue.o $(BUILD_DIR)/harness_wrapper.o $(BUILD_DIR)/pairwise.o $(BUILD_DIR)/hzdptr.o $(BUILD_DIR)/xxhash.o | $(BUILD_DIR)
 	$(CC) -shared -o $@ $^ $(LDLIBS)
 
 $(BUILD_DIR)/libfaa.so: CFLAGS += -DFAAQ
-$(BUILD_DIR)/libfaa.so: $(BUILD_DIR)/faa.o $(BUILD_DIR)/harness.o $(BUILD_DIR)/pairwise.o | $(BUILD_DIR)
+$(BUILD_DIR)/libfaa.so: $(BUILD_DIR)/faa.o $(BUILD_DIR)/harness_wrapper.o $(BUILD_DIR)/pairwise.o | $(BUILD_DIR)
 	$(CC) -shared -o $@ $^ $(LDLIBS)
 
 $(BUILD_DIR)/libcas.so: CFLAGS += -DFAAQ
-$(BUILD_DIR)/libcas.so: $(BUILD_DIR)/cas.o $(BUILD_DIR)/harness.o $(BUILD_DIR)/pairwise.o | $(BUILD_DIR)
+$(BUILD_DIR)/libcas.so: $(BUILD_DIR)/cas.o $(BUILD_DIR)/harness_wrapper.o $(BUILD_DIR)/pairwise.o | $(BUILD_DIR)
 	$(CC) -shared -o $@ $^ $(LDLIBS)
 
 $(BUILD_DIR)/libscq.so: CFLAGS += -DSCQ
-$(BUILD_DIR)/libscq.so: $(BUILD_DIR)/scq.o $(BUILD_DIR)/harness.o $(BUILD_DIR)/pairwise.o | $(BUILD_DIR)
+$(BUILD_DIR)/libscq.so: $(BUILD_DIR)/scq.o $(BUILD_DIR)/harness_wrapper.o $(BUILD_DIR)/pairwise.o | $(BUILD_DIR)
 	$(CC) -shared -o $@ $^ $(LDLIBS)
 
 $(BUILD_DIR)/libscq2.so: CFLAGS += -DSCQ2
-$(BUILD_DIR)/libscq2.so: $(BUILD_DIR)/scq2.o $(BUILD_DIR)/harness.o $(BUILD_DIR)/pairwise.o | $(BUILD_DIR)
+$(BUILD_DIR)/libscq2.so: $(BUILD_DIR)/scq2.o $(BUILD_DIR)/harness_wrapper.o $(BUILD_DIR)/pairwise.o | $(BUILD_DIR)
 	$(CC) -shared -o $@ $^ $(LDLIBS)
 
 $(BUILD_DIR)/libscqd.so: CFLAGS += -DSCQD
-$(BUILD_DIR)/libscqd.so: $(BUILD_DIR)/scqd.o $(BUILD_DIR)/harness.o $(BUILD_DIR)/pairwise.o | $(BUILD_DIR)
+$(BUILD_DIR)/libscqd.so: $(BUILD_DIR)/scqd.o $(BUILD_DIR)/harness_wrapper.o $(BUILD_DIR)/pairwise.o | $(BUILD_DIR)
 	$(CC) -shared -o $@ $^ $(LDLIBS)
 
 $(BUILD_DIR)/libncq.so: CFLAGS += -DNCQ
-$(BUILD_DIR)/libncq.so: $(BUILD_DIR)/ncq.o $(BUILD_DIR)/harness.o $(BUILD_DIR)/pairwise.o | $(BUILD_DIR)
+$(BUILD_DIR)/libncq.so: $(BUILD_DIR)/ncq.o $(BUILD_DIR)/harness_wrapper.o $(BUILD_DIR)/pairwise.o | $(BUILD_DIR)
 	$(CC) -shared -o $@ $^ $(LDLIBS)
 
 $(BUILD_DIR)/libwcq.so: CFLAGS += -DWCQ
-$(BUILD_DIR)/libwcq.so: $(BUILD_DIR)/wcq.o $(BUILD_DIR)/harness.o $(BUILD_DIR)/pairwise.o | $(BUILD_DIR)
+$(BUILD_DIR)/libwcq.so: $(BUILD_DIR)/wcq.o $(BUILD_DIR)/harness_wrapper.o $(BUILD_DIR)/pairwise.o | $(BUILD_DIR)
 	$(CC) -shared -o $@ $^ $(LDLIBS)
 
 # Executable rules

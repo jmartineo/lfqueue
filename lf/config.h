@@ -80,7 +80,7 @@
 typedef int64_t lfsatomic_t;
 typedef uint64_t lfatomic_t;
 typedef __uint128_t lfatomic_big_t;
-# define LFATOMIC_LOG2			3
+# define LFATOMIC_LOG2			3`
 # define LFATOMIC_WIDTH			64
 # define LFATOMIC_BIG_WIDTH		128
 #elif defined(__i386__) || defined(__arm__) || defined(__powerpc__)			\
