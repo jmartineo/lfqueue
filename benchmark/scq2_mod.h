@@ -16,7 +16,8 @@ typedef struct _queue_t {
 
 typedef struct _handle_t {
   lfatomic_t lhead;
-} handle_t; // DOUBLE_CACHE_ALIGNED;
+  char padding[128 - sizeof(lfatomic_t)];
+} handle_t DOUBLE_CACHE_ALIGNED;
 
 #endif
 

@@ -20,8 +20,8 @@ typedef struct _queue_t {
 
 typedef struct _handle_t {
   hzdptr_t hzd;
-} handle_t; // DOUBLE_CACHE_ALIGNED;
-
+  char padding[128 - sizeof(hzdptr_t)];
+} handle_t DOUBLE_CACHE_ALIGNED;
 #endif
 
 #endif /* end of include guard: MSQUEUE_H */
