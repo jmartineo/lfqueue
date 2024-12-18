@@ -32,7 +32,7 @@ BUILD_DIR = build
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
-CFLAGS += -I../../../../../benchmarks/C/
+CFLAGS += -I../../../../../benchmarks/C/ -I../../../
 
 
 all: $(TESTS) $(SHARED_LIBS)
