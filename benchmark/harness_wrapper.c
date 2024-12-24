@@ -179,7 +179,7 @@ int main(int argc, const char *argv[])
   printf("  Benchmark: %s\n", argv[0]);
   printf("  Number of processors: %d\n", nprocs);
 
-  init(nprocs, n);
+  init_bench(nprocs, n);
 
   pthread_t ths[nprocs];
   void * res[nprocs];

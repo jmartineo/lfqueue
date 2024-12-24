@@ -40,6 +40,9 @@ typedef int handle_t;
 #elif SCQ2
 #include "scq2_mod.h"
 
+#elif WCQ
+#include "wcq.h"
+
 #else
 #error "Please specify a queue implementation."
 

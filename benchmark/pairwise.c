@@ -12,7 +12,7 @@ static long nops;
 static queue_t * q;
 static handle_t ** hds;
 
-void init(int nprocs, int logn) {
+void init_bench(int nprocs, int logn) {
 
   /** Use 10^7 as default input size. */
   if (logn == 0) logn = LOGN_OPS;
