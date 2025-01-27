@@ -148,10 +148,6 @@ int main(int argc, const char *argv[])
     nprocs = atoi(argv[1]);
   }
 
-#ifdef NUM_THREADS
-  nprocs = NUM_THREADS;
-#endif
-
 
   /**
    * Use the number of processors online as nprocs if it is not
