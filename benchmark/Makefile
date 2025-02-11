@@ -7,7 +7,7 @@ SHARED_LIBS = build/libwfqueue.so build/libwfqueue0.so build/liblcrq.so build/li
 # if using clang, please also specify -mcx16 for x86-64
 CC = gcc
 CFLAGS = -g -Wall -O3 -pthread -D_GNU_SOURCE -fPIC
-LDLIBS = -ljemalloc -lpthread -lm
+LDLIBS = -lpthread -lm
 
 # Conditional compilation flags
 ifeq (${VERIFY}, 1)
@@ -20,10 +20,10 @@ ifeq (${SANITIZE}, 1)
 	LDFLAGS = -fsanitize=address
 endif
 
-ifdef JEMALLOC_PATH
-	LDFLAGS += -L${JEMALLOC_PATH}/lib -Wl,-rpath,${JEMALLOC_PATH}/lib
-	LDLIBS += -ljemalloc
-endif
+# ifdef JEMALLOC_PATH
+# 	LDFLAGS += -L${JEMALLOC_PATH}/lib -Wl,-rpath,${JEMALLOC_PATH}/lib
+# 	LDLIBS += -ljemalloc
+# endif
 
 # Output directory
 BUILD_DIR = build
