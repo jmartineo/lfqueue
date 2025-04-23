@@ -6,7 +6,7 @@ SHARED_LIBS = build/libwfqueue.so build/libwfqueue0.so build/liblcrq.so build/li
 
 # if using clang, please also specify -mcx16 for x86-64
 CC = gcc
-CFLAGS = -g -Wall -O3 -pthread -D_GNU_SOURCE -fPIC
+CFLAGS = -g -Wall -O3 -pthread -D_GNU_SOURCE -fPIC -std=gnu11
 LDLIBS = -lpthread -lm
 
 # Conditional compilation flags
